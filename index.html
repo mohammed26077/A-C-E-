@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(45deg, #000000, #000000, #474747, #535353);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .content {
+      position: absolute;
+      z-index: 2;
+      color: white;
+      text-align: center;
+    }
+
+    /* ===== صورة البروفايل ===== */
+    .profile-pic {
+      width: 150px;          /* حجم الصورة */
+      height: 150px;
+      border-radius: 50%;    /* يخليها دايرة */
+      object-fit: cover;     /* يظبط القص */
+      border: 4px solid rgb(255, 255, 255); /* حافة بيضاء بسيطة */
+      margin-bottom: 20px;   /* مسافة تحت الصورة */
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .button {
+      display: block;
+      background-color: rgb(0, 64, 154);
+      color: #fff;
+      border: none;
+      width: 200px;
+      height: 50px;
+      margin: 10px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    /* ===== Popup Menu ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 5;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 90%;
+      max-height: 90%;
+      overflow: auto;
+      text-align: center;
+    }
+    .modal-content img {
+      max-width: 100%;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .button { width: 180px; height: 45px; font-size: 1rem; }
+      .profile-pic { width: 120px; height: 120px; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      .button { width: 150px; height: 40px; font-size: 0.9rem; }
+      .profile-pic { width: 100px; height: 100px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <!-- صورة البروفايل -->
+    <img src="33.PNG" alt="Profile Picture" class="profile-pic">
+    <h1>A C E</h1>
+
+    <div class="buttons-container">
+      <a href="https://www.instagram.com/acecafe.eg?igsh=MTI5YWd4b2IxaTZyZA%3D%3D" target="_blank">
+        <button class="button">Instagram</button>
+      </a>
+      <a href="https://www.facebook.com/share/1AJyx867oe/?mibextid=wwXIfr" target="_blank">
+        <button class="button">Facebook</button>
+      </a>
+      <a href="https://maps.app.goo.gl/ZhGrYvjummVDziwA8?g_st=ipc" target="_blank">
+        <button class="button">Location</button>
+      </a>
+      <button class="button" onclick="openMenu()">Menu</button>
+    </div>
+  </div>
+
+  <!-- نافذة المنيو -->
+  <div id="menuModal" class="modal">
+    <span class="close" onclick="closeMenu()">&times;</span>
+    <div class="modal-content">
+      <h2>Menu</h2>
+      <img src="menu1.jpg" alt="Menu Item 1">
+      <img src="menu2.jpg" alt="Menu Item 2">
+      <img src="menu3.jpg" alt="Menu Item 3">
+      <img src="menu4.jpg" alt="menu Item 4">
+    </div>
+  </div>
+
+  <script>
+    function openMenu() {
+      document.getElementById("menuModal").style.display = "flex";
+    }
+    function closeMenu() {
+      document.getElementById("menuModal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
